@@ -8,8 +8,8 @@ variable avail_zone {}
 variable env_prefix {}
 variable my_ip {}
 variable "instance_type" {}
-# variable "my_public_key" {}
-variable "public_key_path" {}
+variable "my_public_key" {}
+# variable "public_key_path" {}
 
 
 
@@ -162,10 +162,10 @@ output "ec2_public_ip" {
 # Automate creating of ssh key pair
 resource "aws_key_pair" "ssh-key" {
   key_name = "server-key"
-#   public_key = var.my_public_key
+  public_key = var.my_public_key
   
 #  More better to use file fetch
-  public_key = file(var.public_key_path)
+  # public_key = file(var.public_key_path)
 }
 
 //Creating ec2 instance
